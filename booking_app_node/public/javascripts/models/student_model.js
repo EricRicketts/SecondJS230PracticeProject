@@ -1,18 +1,20 @@
 let StudentModel = {
   buildStudentModel: function(schedules, students, staff) {
+    let clonedStudents = JSON.parse(JSON.stringify(students));
+    let clonedStaff = JSON.parse(JSON.stringify(staff));
     let schedulesWithBookings = schedules.filter(schedule => schedule.student_email !== null);
-    students.forEach(student => student.bookings = []);
-    return students.map(student => {
-      let foundBooking = schedulesWithBookings.find(schedule => schedule.student_email === student.email);
-      if (foundBooking) {
-        let staffMember = staff.find(staff_member => foundBooking.staff_id === staff_member.id);
-        let booking = {
-          staff_id: foundBooking.staff_id, staff_name: staffMember.name, staff_email: staffMember.email,
-          date: foundBooking.date, time: foundBooking.time
+    clonedStudents.forEach(student => student.bookings = []);
+    return clonedStudents.map(student => {
+      let studentWithBooking = schedulesWithBookings.find(schedule => schedule.student_email === student.email);
+      if (studentWithBooking) {
+        let staffMember = clonedStaff.find(staff_member => studentWithBooking.staff_id === staff_member.id);
+        let bookingObject = {
+          staff: staffMember,
+          booking: { date: studentWithBooking.date, time: studentWithBooking.time }
         };
-        student.bookings.push(booking);
+        student.bookings.push(bookingObject);
       }
-      return studentiii;
+      return student;
     });
   },
   init: function(schedules, students, staff) {

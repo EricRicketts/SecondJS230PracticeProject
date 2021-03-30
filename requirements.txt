@@ -1,22 +1,15 @@
-1.  When landing on the home page the user should see a list of staff
-    1.  name
-    2.  email
-    3.  button -> retrieve schedule
-2.  The user should always be able to do the following
-    1.  Add a staff member
+1.  Within the home page the user sees a list of instructors with their names, emails, and a button which says
+'show schedule'.
+2.  The UI should always allow for the following actions:
+    1.  Add a new staff member
     2.  Add a new student
-    3.  Show all staff
+    3.  Show all staff members
     4.  Show all students
-3.  When selecting the button for the staff member
-    1.  Brings up the entire schedule for that staff member, format?
-    2.  When in this view, staff member should be able to add a slot for available bookings
-    3.  When in this view, staff member should be able to cancel a booking slot
-4.  When we are in the list of students view
-    1.  Single student view
-        1.  Name
-        2.  Email
-        3.  button -> retrieve schedule
-    2.  given this booking schedule, the student should be able to cancel a selected booking
-    3.  There is a pull down in the view which shows the staff name
-    4.  When the student selects on of the staff names, the staff schedule comes up
-    5.  When the staff schedule appears, the student should be able to add a booking
+    5.  This might be optional, search a range of dates, including a single date, to show all bookings
+3.  Staff Behavior
+    1.  show a schedule for a staff, restrict with a date picker or an input field
+    2.  Be able to add a new time slot (schedule) for a staff member
+    3.  The staff should be able to cancel a time slot (schedule)
+4.  Student Behavior
+    1.  book with a staff member schedule
+    2.  cancel a booking with a staff member
