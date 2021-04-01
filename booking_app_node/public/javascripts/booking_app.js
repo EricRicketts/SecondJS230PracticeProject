@@ -1,8 +1,8 @@
-import { StudentModel } from "./models/student_model.js";
-import { StaffModel } from "./models/staff_model.js";
+import { Model } from "./models/model.js";
 import { View } from "./views/view.js";
 
 let BookingApp = {
+  /*
   getModelData: function() {
     const domain = 'http://localhost:3000';
     const [schedulesPath, studentsPath, staffPath] = ['/api/schedules', '/api/students', '/api/staff_members'];
@@ -47,13 +47,15 @@ let BookingApp = {
       }
     }.bind(this);
   },
+
+   */
   init: function(document) {
     this.document = document;
     this.view = View.init(document);
-    this.getModelData();
+    this.model = Model.init();
   }
 }
 
 document.addEventListener('DOMContentLoaded', event => {
-  BookingApp.init(document);
+  let bookingApp = BookingApp.init(document);
 });
