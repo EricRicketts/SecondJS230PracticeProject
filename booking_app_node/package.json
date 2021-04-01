@@ -6,12 +6,16 @@
     "start": "node ./bin/www",
     "test": "jest"
   },
-    "jest": { "transform": { "^.+\\.[t|j]sx?$": "babel-jest" }
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "~4.16.0",
+    "handlebars": "^4.7.7",
     "http-errors": "~1.6.2",
     "jest": "^26.6.3",
     "morgan": "~1.9.0",

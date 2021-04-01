@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link href="./stylesheets/styles.css" rel="stylesheet">
   <title>Booking Application</title>
+  <link href="./stylesheets/styles.css" rel="stylesheet">
+  <script type="module" src="./javascripts/booking_app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg==" crossorigin="anonymous"></script>
 </head>
 <body>
   <header class="header">
@@ -18,5 +20,41 @@
       <li><a href="">Add Student</a></li>
     </ul>
   </nav>
+  <div id="content">
+  </div>
+  <script type="text/x-handlebars-template" data-group="partial" id="personnel_partial">
+    <div class="personnel">
+      <dl>
+        <dt>Name:</dt>
+        <dd>{{name}}</dd>
+        <dt>Email:</dt>
+        <dd>{{email}}</dd>
+        <dt>Bookings:</dt>
+        <dd>
+          <select name="" class="bookings">
+            <option value="">
+              <dl>
+                <dt>Name:</dt>
+                <dl>{{booking.name}}</dl>
+                <dt>Email:</dt>
+                <dl>{{booking.email}}</dl>
+                <dt>Date:</dt>
+                <dl>{{booking.date}}</dl>
+                <dt>Time:</dt>
+                <dl>{{booking.time}}</dl>
+              </dl>
+            </option>
+          </select>
+        </dd>
+      </dl>
+    </div>
+  </script>
+  <script type="text/x-handlebars-template" data-group="template" id="personnel_template">
+    <div class="all_personnel">
+      {{#each persons}}
+        {{> personnelPartial this}}
+      {{/each}}
+    </div>
+  </script>
 </body>
 </html>
