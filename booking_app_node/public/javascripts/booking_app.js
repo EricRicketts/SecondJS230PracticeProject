@@ -1,5 +1,6 @@
 import { Model } from "./models/model.js";
 import { View } from "./views/view.js";
+import { Controller } from "./controllers/controller";
 
 let BookingApp = {
   /*
@@ -49,13 +50,28 @@ let BookingApp = {
   },
 
    */
+  deployHomePageButtonListeners: function() {
+    this.showAllStaffButton.addEventListener('click', event => {
+
+    })
+  },
+  start: function() {
+    this.deployHomePageButtonListeners();
+  },
   init: function(document) {
     this.document = document;
-    this.view = View.init(document);
+    this.showAllStaffButton = this.document.getElementById('all_staff');
+    this.showAllStudentsButton = this.document.getElementById('all_students');
+    this.addStaffMemberButton = this.document.getElementById('add_staff_member');
+    this.addStudent = this.document.getElementById('add_student');
     this.model = Model.init();
+    this.view = View.init(document);
+    this.controller = Controller.init(this);
+    return this;
   }
 }
 
 document.addEventListener('DOMContentLoaded', event => {
   let bookingApp = BookingApp.init(document);
+  bookingApp.start();
 });

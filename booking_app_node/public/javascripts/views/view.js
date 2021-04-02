@@ -25,8 +25,8 @@ let View = {
     return match[1].toUpperCase();
   },
   init: function(document) {
-    this.re = /_[a-z]/g
     this.document = document;
+    this.re = /_[a-z]/g
     this.registerPartials();
     this.compileTemplates();
     return this;

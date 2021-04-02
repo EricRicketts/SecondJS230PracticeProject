@@ -13,9 +13,9 @@ let Model = {
       if (staffWithBooking) {
         let studentWithBooking = clonedStudents.find(student => staffWithBooking.student_email === student.email);
         let bookingObject = {
-          student: studentWithBooking,
-          booking: { date: staffWithBooking.date, time: staffWithBooking.time }
-        }
+          id: studentWithBooking.id, name: studentWithBooking.name, email: studentWithBooking.email,
+          date: staffWithBooking.date, time: staffWithBooking.time
+        };
         staffMember.bookings.push(bookingObject);
       }
       return staffMember;
@@ -28,8 +28,8 @@ let Model = {
       if (studentWithBooking) {
         let staffMember = clonedStaff.find(staff_member => studentWithBooking.staff_id === staff_member.id);
         let bookingObject = {
-          staff: staffMember,
-          booking: { date: studentWithBooking.date, time: studentWithBooking.time }
+          id: staffMember.id, name: staffMember.name, email: staffMember.email,
+          date: studentWithBooking.date, time: studentWithBooking.time
         };
         student.bookings.push(bookingObject);
       }
